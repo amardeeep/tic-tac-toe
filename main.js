@@ -2,20 +2,35 @@
 const gameboard=(function() {
     const columns=3;
     const rows=3;
-    const array=[];
+    const gameGrid=[];
     let index=0;
     for(let i=0;i<columns;i++){
-        array[i]=[];
+        gameGrid[i]=[];
         for(let j=0;j<rows;j++){
-            array[i][j]=index++;
+            gameGrid[i][j]=index++;
         }
     }
-    const length=()=>array.length;
-    const pushElementToArray=(element)=>array.push(element);
-    return {array,length,pushElementToArray};
+    
+    
+    return {gameGrid};
 })();
-console.log(gameboard.pushElementToArray)
+
 //player object
-function playerObject(player){
-    const marker=player
+function playerObject(player,marker){
+    
+    
+    let score=0;
+    const wonRound=()=>score++;
+    const lossRound=()=>score;
+    const drawRound=()=>score;
+    return {player,marker,wonRound,lossRound,drawRound,assignMarker};
+}
+//game Object
+function game(numberOfROunds,player1,marker1,player2,marker2){
+    const numberOfROunds=numberOfROunds;
+    const player1=playerObject(player1,marker1);
+    const player2=playerObject(player2,marker2);
+    
+
+
 }
